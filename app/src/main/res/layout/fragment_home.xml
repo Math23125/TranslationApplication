@@ -1,18 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".fragment.FragmentHome">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="FRG_1" />
+    <!-- Conteneur central pour les sélections de langue -->
+    <LinearLayout
+        android:id="@+id/languageSelectionContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="65dp"
+        android:layout_marginStart="68dp"
+        android:background="@drawable/rounded_corner"
+        android:orientation="horizontal"
+        android:gravity="center">
 
-</LinearLayout>
+        <!-- Bloc langue française -->
+        <LinearLayout
+            android:id="@+id/frenchContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/rounded_white_background"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/frenchflag"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/frenchflag"
+                android:contentDescription="@string/french_flag" />
+
+            <TextView
+                android:id="@+id/frenchText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Français"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Flèche pour changer de langue -->
+        <ImageView
+            android:id="@+id/arrowIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/arrow_icon"
+            android:contentDescription="@string/change_language" />
+
+        <!-- Bloc langue anglaise -->
+        <LinearLayout
+            android:id="@+id/englishContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/rounded_white_background"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/britishflag"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/britishflag"
+                android:contentDescription="@string/british_flag" />
+
+            <TextView
+                android:id="@+id/englishText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Anglais"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/inputText"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/rounded_corner"
+        android:elevation="5dp"
+        android:hint="Entrez le texte"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <!-- Zone d'affichage du texte traduit -->
+    <TextView
+        android:id="@+id/translatedText"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:layout_below="@id/inputText"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/rounded_corner"
+        android:elevation="5dp"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+</RelativeLayout>

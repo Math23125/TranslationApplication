@@ -10,12 +10,70 @@ import android.view.ViewGroup;
 
 import com.example.navbarre.R;
 
+
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import androidx.fragment.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.example.navbarre.R;
+import android.widget.LinearLayout;
+
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link FragmentHome#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class FragmentHome extends Fragment {
+
+    private ImageView frenchFlag;
+    private ImageView britishFlag;
+    private TextView frenchText;
+    private TextView englishText;
+    private ImageView arrow;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Trouver les conteneurs de langue
+        LinearLayout frenchContainer = view.findViewById(R.id.frenchContainer);
+        LinearLayout englishContainer = view.findViewById(R.id.englishContainer);
+
+        // Trouver les textes et drapeaux
+        TextView frenchText = frenchContainer.findViewById(R.id.frenchText);
+        TextView englishText = englishContainer.findViewById(R.id.englishText);
+        ImageView frenchFlag = frenchContainer.findViewById(R.id.frenchflag);
+        ImageView englishFlag = englishContainer.findViewById(R.id.britishflag);
+        ImageView arrow = view.findViewById(R.id.arrowIcon);
+
+        // Configurer l'écouteur de clics sur la flèche
+        arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Échanger les drapeaux
+                Drawable tempFlag = frenchFlag.getDrawable();
+                frenchFlag.setImageDrawable(englishFlag.getDrawable());
+                englishFlag.setImageDrawable(tempFlag);
+
+                // Échanger les textes
+                CharSequence tempText = frenchText.getText();
+                frenchText.setText(englishText.getText());
+                englishText.setText(tempText);
+            }
+        });
+    }
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,10 +115,4 @@ public class FragmentHome extends Fragment {
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
-    }
 }
