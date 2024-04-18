@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.util.Log;
 import androidx.fragment.app.Fragment;
 
 import com.example.navbarre.R;
@@ -129,15 +130,23 @@ public class FragmentHome extends Fragment {
 
         RequestBody body = RequestBody.create(JSON, jsonObject.toString());
         Request request = new Request.Builder()
-                .url("http://192.168.1.18:5000/test")
+                .url("http://192.168.1.18:5000/translate")
                 .post(body)
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                getActivity().runOnUiThread(() -> Toast.makeText(getContext(), "Server down or no connection.", Toast.LENGTH_SHORT).show());
+                Log.e("FragmentHome", "Network Call Failed", e); // Ceci loguera l'erreur dans Logcat
+
+                getActivity().runOnUiThread(() -> {
+                    // Affichez le message d'erreur dans un Toast.
+                    Toast.makeText(getContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    // Optionnel : Affichez le message d'erreur dans le TextView du fragment.
+                    // translatedText.setText("Error: " + e.getMessage()); // Assurez-vous que translatedText est accessible ici.
+                });
             }
+
 
             @Override
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
