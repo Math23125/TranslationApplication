@@ -4,4 +4,10 @@
     <string name="french_flag">Drapeau français</string>
     <string name="change_language">Changer de langue</string>
     <string name="british_flag">Drapeau britannique</string>
+    <string-array name="language_options">
+        <item>Français</item>
+        <item>Anglais</item>
+        <item>Espagnol</item>
+    </string-array>
+
 </resources>
