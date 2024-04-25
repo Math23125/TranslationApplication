@@ -1,5 +1,8 @@
 package com.example.navbarre.fragment;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -88,6 +92,13 @@ public class FragmentHome extends Fragment {
         britishFlag = englishContainer.findViewById(R.id.britishflag);
         arrow = view.findViewById(R.id.arrowIcon);
 
+        ImageButton copyButtonInputText = view.findViewById(R.id.copyButtonInputText);
+        ImageButton copyButtonTranslatedText = view.findViewById(R.id.copyButtonTranslatedText);
+
+        copyButtonInputText.setOnClickListener(v -> copyTextToClipboard(inputText.getText().toString()));
+        copyButtonTranslatedText.setOnClickListener(v -> copyTextToClipboard(translatedText.getText().toString()));
+
+
         // Setup language switching logic
         arrow.setOnClickListener(v -> switchLanguages());
 
@@ -106,6 +117,13 @@ public class FragmentHome extends Fragment {
                 debounceTranslate(s.toString(), translatedText);
             }
         });
+    }
+
+    private void copyTextToClipboard(String text) {
+        ClipboardManager clipboard = (ClipboardManager) requireContext().getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("Copied Text", text);
+        clipboard.setPrimaryClip(clip);
+        Toast.makeText(requireContext(), "Text copied to clipboard", Toast.LENGTH_SHORT).show();
     }
 
     private void switchLanguages() {
@@ -130,7 +148,7 @@ public class FragmentHome extends Fragment {
 
         RequestBody body = RequestBody.create(JSON, jsonObject.toString());
         Request request = new Request.Builder()
-                .url("http://192.168.1.18:5000/translate")
+                .url("http://10.4.252.231:5000/translate")
                 .post(body)
                 .build();
 
