@@ -1,60 +1,66 @@
 package com.example.navbarre.fragment;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-
 
 import androidx.fragment.app.Fragment;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.example.navbarre.R;
 
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link FragmentSettings#newInstance} factory method to
+ * create an instance of this fragment.
+ */
 public class FragmentSettings extends Fragment {
 
-    private Spinner languageSpinner;
-    private String selectedLanguage = "";
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
     public FragmentSettings() {
         // Required empty public constructor
     }
 
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment FragmentUser.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static FragmentSettings newInstance(String param1, String param2) {
+        FragmentSettings fragment = new FragmentSettings();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
-
-        // Initialisation du Spinner
-        languageSpinner = rootView.findViewById(R.id.languageSpinner);
-
-        // Configuration du Spinner avec les options de langue depuis les ressources de chaînes
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(requireContext(),
-                R.array.language_options, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        languageSpinner.setAdapter(adapter);
-
-        // Écouteur de sélection pour le Spinner
-        languageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedLanguage = parent.getItemAtPosition(position).toString();
-                // Faites ce que vous devez faire avec la langue sélectionnée ici
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // Faites quelque chose si rien n'est sélectionné
-            }
-        });
-
-        return rootView;
-    }
-
-    // Méthode pour récupérer la langue sélectionnée
-    public String getSelectedLanguage() {
-        return selectedLanguage;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_settings, container, false);
     }
 }
