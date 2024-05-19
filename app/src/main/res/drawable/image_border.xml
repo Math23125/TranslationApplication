@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF"/> <!-- Couleur de fond, ajustez si nécessaire -->
+            <stroke android:width="4dp" android:color="#FF0000"/> <!-- Définit la largeur et la couleur du bord -->
+            <padding android:left="4dp" android:top="4dp" android:right="4dp" android:bottom="4dp"/> <!-- Padding pour éloigner l'image des bords -->
+            <corners android:radius="0dp"/> <!-- Coins arrondis si nécessaire -->
+        </shape>
+    </item>
+    <item>
+        <bitmap android:src="@drawable/logo_fleche" android:gravity="center"/>
+    </item>
+</layer-list>

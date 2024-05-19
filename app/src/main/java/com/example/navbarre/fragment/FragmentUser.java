@@ -1,14 +1,22 @@
 package com.example.navbarre.fragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.navbarre.R;
+import com.example.navbarre.fragment.Histopower.AppDatabase;
+import com.example.navbarre.fragment.Histopower.DatabaseClient;
+import com.example.navbarre.fragment.Histopower.Translation;
+import com.example.navbarre.fragment.Histopower.TranslationAdapter;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +33,9 @@ public class FragmentUser extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private RecyclerView recyclerView;
+    private TranslationAdapter adapter;
 
     public FragmentUser() {
         // Required empty public constructor
@@ -58,9 +69,25 @@ public class FragmentUser extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false);
+        View view = inflater.inflate(R.layout.fragment_user, container, false);
+        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        loadTranslations();
+        return view;
     }
+
+    private void loadTranslations() {
+        new Thread(() -> {
+            AppDatabase db = DatabaseClient.getInstance(getActivity().getApplicationContext()).getAppDatabase();
+            List<Translation> translations = db.translationDao().getAllTranslations();
+
+            getActivity().runOnUiThread(() -> {
+                adapter = new TranslationAdapter(getActivity(), translations);
+                recyclerView.setAdapter(adapter);
+            });
+        }).start();
+    }
+
 }
