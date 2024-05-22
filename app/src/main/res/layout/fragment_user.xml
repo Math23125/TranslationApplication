@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="?attr/colorOnBackground"
     tools:context=".fragment.FragmentHome">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textColor="@color/black"
+        android:textColor="?attr/android:textColor"
         android:gravity="center"
         android:textSize="20sp"
         android:text="FRG_2" />

@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/colorOnBackground"
     tools:context=".fragment.FragmentHome">
 
     <!-- Conteneur central pour les sélections de langue -->
@@ -16,8 +17,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:src="@drawable/simplified_icon"
-
-        />
+        app:tint="?attr/android:iconTint"/>
 
     <LinearLayout
         android:id="@+id/languageSelectionContainer"
@@ -56,22 +56,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text=" Français "
-                android:textColor="@color/black"
+                android:textColor="?attr/android:textColor"
                 android:textSize="14sp"
                 android:fontFamily="sans-serif-condensed" />
         </LinearLayout>
 
         <!-- Flèche pour changer de langue -->
+
+        <!-- Bloc langue anglaise -->
         <ImageView
             android:id="@+id/arrowIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:contentDescription="@string/change_language"
             android:src="@drawable/arrow_icon"
-            android:contentDescription="@string/change_language" />
+            app:tint="?attr/android:iconTint" />
 
-        <!-- Bloc langue anglaise -->
         <LinearLayout
             android:id="@+id/englishContainer"
             android:layout_width="wrap_content"
@@ -94,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="  English  "
-                android:textColor="@color/black"
+                android:textColor="?attr/android:textColor"
                 android:textSize="14sp"
                 android:fontFamily="sans-serif-condensed" />
         </LinearLayout>
@@ -113,8 +115,9 @@
             android:layout_height="220dp"
             android:background="@drawable/rounded_corner"
             android:hint="Entrez le texte"
+            android:textColorHint="?attr/android:textColor"
             android:padding="16dp"
-            android:textColor="@color/black"
+            android:textColor="?attr/android:textColor"
             android:textSize="20sp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center_vertical|start"/>
@@ -127,10 +130,11 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="1dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:contentDescription="@string/copy_button"
+            android:background="@drawable/rounded_corner"
+            android:contentDescription="@string/french_flag"
             android:padding="8dp"
-            android:src="@drawable/copy_icon" />
+            app:tint="?attr/android:iconTint"
+            android:src="@drawable/copy_icon2" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -148,8 +152,9 @@
             android:layout_height="220dp"
             android:background="@drawable/rounded_corner"
             android:hint="Translated text"
+            android:textColorHint="?attr/android:textColor"
             android:padding="16dp"
-            android:textColor="@color/black"
+            android:textColor="?attr/android:textColor"
             android:textSize="20sp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center_vertical|start" />
@@ -162,12 +167,11 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="1dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:contentDescription="@string/copy_button"
+            android:background="@drawable/rounded_corner"
+            android:contentDescription="@string/british_flag"
             android:padding="8dp"
-            android:src="@drawable/copy_icon" />
+            app:tint="?attr/android:iconTint"
+            android:src="@drawable/copy_icon2" />
     </RelativeLayout>
-
-
 
 </RelativeLayout>

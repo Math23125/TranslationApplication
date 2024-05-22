@@ -10,8 +10,8 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pagerMain"
         android:layout_width="match_parent"
-        android:background="@color/white"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="@color/white" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -27,11 +27,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/bottomNav"
-            android:background="@color/white"
-            android:rotationY="0"
-            app:itemIconTint="@color/color_item_bottom_nav"
-            app:itemTextColor="@color/color_item_bottom_nav"
-            app:menu="@menu/menu_bottom_nav" />
+            android:background="?attr/android:colorPrimary"
+            app:itemIconTint="?attr/android:iconTint"
+            app:itemTextColor="?attr/android:textColor"
+            app:menu="@menu/menu_bottom_nav"/>
 
     </androidx.cardview.widget.CardView>
 

@@ -4,4 +4,5 @@
     <string name="french_flag">Drapeau français</string>
     <string name="change_language">Changer de langue</string>
     <string name="british_flag">Drapeau britannique</string>
+    <string name="title_activity_page_chargement">PageChargement</string>
 </resources>
