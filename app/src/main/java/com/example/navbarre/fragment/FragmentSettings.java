@@ -95,8 +95,8 @@ public class FragmentSettings extends Fragment {
         profiles.put("John", "John,Doe,MysticDreamer,01/01/1990");
         profiles.put("Alice", "Alice,Smith,SilverPhoenix,02/02/1995");
         profiles.put("Bob", "Bob,Johnson,FrostByte,03/03/1985");
-        profiles.put("Mahouna", "Mahouna,Vayssieres,Mikey,00/00/2003");
-        profiles.put("Mathieu", "Mathieu,Gilles,ShadowNinja,00/00/2003");
+        profiles.put("Mahouna", "Mahouna,Vayssieres,Mikey,06/06/2003");
+        profiles.put("Mathieu", "Mathieu,Gilles,ShadowNinja,12/12/2003");
         profiles.put("Mathieu", "Mathieu,Habelski,PédroCiTdor,23/12/2003");
         // Ajoutez d'autres profils selon vos besoins
     }
@@ -156,9 +156,7 @@ public class FragmentSettings extends Fragment {
                         "\n" +
                         "Équipe :\n" +
                         "\n" +
-                        "Fondateurs : Mahouna V., Mathieu G., Mathieu H.\n" +
-                        "Techniques et IA: Mahouna V., Mathieu G.\n" +
-                        "Design : Mathieu H.\n" +
+                        "Mahouna V., Mathieu G., Mathieu H.\n" +
                         "\n" +
                         "Contact : Besoin d'aide ? Contactez-nous à MahMAtMat@esme.fr.\n" +
                         "\n" +

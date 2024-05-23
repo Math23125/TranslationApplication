@@ -8,6 +8,8 @@
         <item name="android:iconTint">@color/black</item> <!-- Couleur des icônes -->
         <item name="colorPrimary">@color/whitegrey</item> <!-- Couleur de fond de la barre d'action -->
         <item name="colorOnBackground">@color/white</item> <!-- Couleur de fond de la barre d'action -->
+        <item name="android:textColorHint">@color/darkwhite</item> <!-- Couleur de fond de la barre d'action -->
+
 
         <!-- Autres attributs -->
     </style>
@@ -19,6 +21,8 @@
         <item name="android:iconTint">@color/whitegrey</item> <!-- Couleur des icônes -->
         <item name="colorPrimary">@color/darkgrey</item>
         <item name="colorOnBackground">@color/darkgreydark</item> <!-- Couleur de fond de la barre d'action -->
+        <item name="android:textColorHint">@color/darkwhite</item> <!-- Couleur de fond de la barre d'action -->
+
         <!-- Couleur de fond de la barre d'action -->
         <!-- Autres attributs -->
     </style>

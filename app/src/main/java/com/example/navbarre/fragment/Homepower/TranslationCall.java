@@ -58,7 +58,7 @@ public class TranslationCall {
 
         RequestBody body = RequestBody.create(JSON, jsonObject.toString());
         Request request = new Request.Builder()
-                .url("http://192.168.1.18:5000/translate/" + currentLang)
+                .url("http://192.168.1.19:5000/translate/" + currentLang)
                 .post(body)
                 .build();
 

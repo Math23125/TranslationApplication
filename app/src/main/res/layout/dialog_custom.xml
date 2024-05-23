@@ -5,17 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="30dp"
+    app:cardCornerRadius="60dp"
     tools:ignore="DuplicateIds"
-    android:background="?attr/colorPrimary">
+    android:background="@drawable/rounded_dialog">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:cardCornerRadius="60dp">
 
-            <TextView
+
+        <TextView
                 android:id="@+id/dialogTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
