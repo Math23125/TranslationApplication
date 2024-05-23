@@ -8,7 +8,7 @@
         <item name="android:iconTint">@color/black</item> <!-- Couleur des icônes -->
         <item name="colorPrimary">@color/whitegrey</item> <!-- Couleur de fond de la barre d'action -->
         <item name="colorOnBackground">@color/white</item> <!-- Couleur de fond de la barre d'action -->
-        <item name="android:textColorHint">@color/darkwhite</item> <!-- Couleur de fond de la barre d'action -->
+        <item name="android:textColorHint">@color/darkgrey</item> <!-- Couleur de fond de la barre d'action -->
 
 
         <!-- Autres attributs -->

@@ -29,7 +29,6 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="56dp"
         android:layout_marginEnd="56dp"
-
         android:orientation="horizontal"
         android:gravity="center">
 
@@ -61,9 +60,7 @@
                 android:fontFamily="sans-serif-condensed" />
         </LinearLayout>
 
-        <!-- Flèche pour changer de langue -->
 
-        <!-- Bloc langue anglaise -->
         <ImageView
             android:id="@+id/arrowIcon"
             android:layout_width="24dp"
@@ -115,7 +112,7 @@
             android:layout_height="220dp"
             android:background="@drawable/rounded_corner"
             android:hint="Entrez le texte"
-            android:textColorHint="?attr/android:textColor"
+            android:textColorHint="?attr/android:textColorHint"
             android:padding="16dp"
             android:textColor="?attr/android:textColor"
             android:textSize="20sp"
@@ -152,7 +149,7 @@
             android:layout_height="220dp"
             android:background="@drawable/rounded_corner"
             android:hint="Translated text"
-            android:textColorHint="?attr/android:textColor"
+            android:textColorHint="?attr/android:textColorHint"
             android:padding="16dp"
             android:textColor="?attr/android:textColor"
             android:textSize="20sp"

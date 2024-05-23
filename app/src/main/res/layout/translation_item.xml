@@ -7,8 +7,8 @@
     android:layout_margin="12dp"
     card_view:cardCornerRadius="10dp"
     card_view:cardElevation="6dp"
-    android:backgroundTint="@color/whitegrey">
-    >
+    android:backgroundTint="?attr/colorOnBackground">
+
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -17,7 +17,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:background="?attr/colorPrimary">
 
             <!-- Textes de la traduction -->
             <LinearLayout
@@ -28,6 +29,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/date_time_container"
                 app:layout_constraintTop_toTopOf="parent"
+                android:textColor="?attr/android:textColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:paddingEnd="8dp">
 
@@ -38,6 +40,7 @@
                     android:text="Original Text"
                     android:ellipsize="end"
                     android:maxLines="1"
+                    android:textColor="?attr/android:textColor"
                     android:textSize="14sp" />
 
                 <TextView
@@ -46,6 +49,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/translated_text"
                     android:ellipsize="end"
+                    android:textColor="?attr/android:textColor"
                     android:maxLines="1"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -56,6 +60,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:textColor="?attr/android:textColor"
+                android:background="?attr/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -66,6 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Date"
+                    android:textColor="?attr/android:textColor"
                     android:textAlignment="viewEnd"
                     android:textSize="12sp" />
 
@@ -74,6 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Time"
+                    android:textColor="?attr/android:textColor"
                     android:textAlignment="viewEnd"
                     android:textSize="12sp" />
 
@@ -83,8 +91,10 @@
                     android:layout_height="24dp"
                     android:src="@drawable/delete_icon"
                     android:background="?android:attr/selectableItemBackground"
+                    app:itemIconTint="?attr/android:iconTint"
+                    app:itemTextColor="?attr/android:textColor"
                     android:layout_marginTop="8dp"
-                    app:tint="@color/black"/>
+                    app:tint="?attr/android:iconTint" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
