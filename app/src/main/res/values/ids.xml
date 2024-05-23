@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="full_original_text" type="id" />
+    <item name="full_translated_text" type="id" />
+    <item name="translation_date" type="id" />
+    <item name="translation_time" type="id" />
+    <item name="textViewFullText" type="id" />
+    <item name="close_button" type="id" />
+    <item name="textViewDate" type="id" />
+    <item name="textViewTime" type="id" />
+</resources>

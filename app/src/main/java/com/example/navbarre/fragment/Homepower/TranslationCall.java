@@ -7,15 +7,12 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-<<<<<<< HEAD
-=======
 import androidx.room.Room;
 
 import com.example.navbarre.fragment.Histopower.AppDatabase;
 import com.example.navbarre.fragment.Histopower.DatabaseClient;
 import com.example.navbarre.fragment.Histopower.Translation;
 
->>>>>>> History
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,33 +26,22 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-<<<<<<< HEAD
-
-public class TranslationCall {
-    private Context context;
-=======
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 public class TranslationCall {
     private Context context;
     private AppDatabase db;
->>>>>>> History
     private String currentLang = "fr-en";  // Direction de la langue par défaut
     private Handler handler = new Handler();
     private Runnable workRunnable;
 
     public TranslationCall(Context context) {
         this.context = context;
-<<<<<<< HEAD
-    }
-
-=======
         db = DatabaseClient.getInstance(context).getAppDatabase();
     }
 
 
->>>>>>> History
     public String getCurrentLang() {
         return currentLang;
     }
@@ -83,11 +69,7 @@ public class TranslationCall {
 
         RequestBody body = RequestBody.create(JSON, jsonObject.toString());
         Request request = new Request.Builder()
-<<<<<<< HEAD
-                .url("http://192.168.1.18:5000/translate/" + currentLang)
-=======
-                .url("http://192.168.1.10:5000/translate/" + currentLang)
->>>>>>> History
+                .url("http://10.4.254.221:5000/translate/" + currentLang)
                 .post(body)
                 .build();
 
@@ -118,14 +100,10 @@ public class TranslationCall {
                     JSONObject jsonResponse = new JSONObject(responseData);
                     String translatedText = jsonResponse.getString("translated_text");
                     if (context instanceof Activity) {
-<<<<<<< HEAD
-                        ((Activity) context).runOnUiThread(() -> textView.setText(translatedText));
-=======
                         ((Activity) context).runOnUiThread(() -> {
                             textView.setText(translatedText);
                             saveTranslation(text, translatedText); // Sauvegarde la traduction ici
                         });
->>>>>>> History
                     }
                 } catch (JSONException e) {
                     Log.e("TranslationCall", "Erreur de parsing JSON", e);
@@ -138,10 +116,6 @@ public class TranslationCall {
             }
         });
     }
-<<<<<<< HEAD
-}
-
-=======
 
     private void saveTranslation(String original, String translated) {
         new Thread(() -> {
@@ -171,4 +145,3 @@ public class TranslationCall {
 
 
 
->>>>>>> History

@@ -1,9 +1,5 @@
 <!-- res/drawable/rounded_white_background.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-<<<<<<< HEAD
     <solid android:color="?attr/colorPrimary" />
-=======
-    <solid android:color="@color/white" />
->>>>>>> History
     <corners android:radius="10dp"/>
 </shape>

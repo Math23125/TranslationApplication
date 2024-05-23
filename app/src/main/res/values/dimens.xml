@@ -1,0 +1,12 @@
+<resources>
+    <!-- Hauteur des zones de texte -->
+    <dimen name="edit_text_height">150dp</dimen>
+
+    <!-- Espace entre la première zone de texte et le deuxième drapeau -->
+    <dimen name="space_between_edittext_and_flag">0dp</dimen>
+
+    <!-- Nouvelles dimensions pour les rectangles de traduction -->
+    <dimen name="translation_option_width">160dp</dimen>
+    <dimen name="translation_option_height">40dp</dimen>
+
+</resources>
