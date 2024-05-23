@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">NavBarre</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="french_flag">Drapeau français</string>
+    <string name="change_language">Changer de langue</string>
+    <string name="british_flag">Drapeau britannique</string>
+    <string name="title_activity_page_chargement">PageChargement</string>
 </resources>

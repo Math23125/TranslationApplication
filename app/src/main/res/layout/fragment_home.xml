@@ -1,18 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/colorOnBackground"
     tools:context=".fragment.FragmentHome">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="FRG_1" />
+    <!-- Conteneur central pour les sélections de langue -->
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="93dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="160dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/simplified_icon"
+        app:tint="?attr/android:iconTint"/>
+
+    <LinearLayout
+        android:id="@+id/languageSelectionContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="116dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="56dp"
+        android:background="@drawable/rounded_white_background"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!-- Bloc langue française -->
+        <LinearLayout
+            android:id="@+id/frenchContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/rounded_corner"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/frenchflag"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/frenchflag"
+                android:contentDescription="@string/french_flag" />
+
+            <TextView
+                android:id="@+id/frenchText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=" Français "
+                android:textColor="?attr/android:textColor"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-condensed" />
+        </LinearLayout>
+
+        <!-- Flèche pour changer de langue -->
+
+        <!-- Bloc langue anglaise -->
+        <ImageView
+            android:id="@+id/arrowIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/change_language"
+            android:src="@drawable/arrow_icon"
+            app:tint="?attr/android:iconTint" />
+
+        <LinearLayout
+            android:id="@+id/englishContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/rounded_corner"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/britishflag"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/britishflag"
+                android:contentDescription="@string/british_flag" />
+
+            <TextView
+                android:id="@+id/englishText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="  English  "
+                android:textColor="?attr/android:textColor"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-condensed" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp">
+
+        <EditText
+            android:id="@+id/inputText"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@drawable/rounded_corner"
+            android:hint="Entrez le texte"
+            android:textColorHint="?attr/android:textColor"
+            android:padding="16dp"
+            android:textColor="?attr/android:textColor"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical|start"/>
+
+        <ImageButton
+            android:id="@+id/copyButtonInputText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/rounded_corner"
+            android:contentDescription="@string/french_flag"
+            android:padding="8dp"
+            app:tint="?attr/android:iconTint"
+            android:src="@drawable/copy_icon2" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputText"
+        android:layout_marginTop="480dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        tools:ignore="NotSibling">
+
+        <TextView
+            android:id="@+id/translatedText"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@drawable/rounded_corner"
+            android:hint="Translated text"
+            android:textColorHint="?attr/android:textColor"
+            android:padding="16dp"
+            android:textColor="?attr/android:textColor"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical|start" />
+
+        <ImageButton
+            android:id="@+id/copyButtonTranslatedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/rounded_corner"
+            android:contentDescription="@string/british_flag"
+            android:padding="8dp"
+            app:tint="?attr/android:iconTint"
+            android:src="@drawable/copy_icon2" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Thème clair -->
+    <style name="Theme.NavBarre.Light" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Personnalisez votre thème clair ici -->
+        <item name="android:textColor">@color/black</item> <!-- Couleur du texte -->
+        <item name="android:iconTint">@color/black</item> <!-- Couleur des icônes -->
+        <item name="colorPrimary">@color/whitegrey</item> <!-- Couleur de fond de la barre d'action -->
+        <item name="colorOnBackground">@color/white</item> <!-- Couleur de fond de la barre d'action -->
+
+        <!-- Autres attributs -->
+    </style>
+
+    <!-- Thème sombre -->
+    <style name="Theme.NavBarre.Dark" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Personnalisez votre thème sombre ici -->
+        <item name="android:textColor">@color/whitegrey</item> <!-- Couleur du texte -->
+        <item name="android:iconTint">@color/whitegrey</item> <!-- Couleur des icônes -->
+        <item name="colorPrimary">@color/darkgrey</item>
+        <item name="colorOnBackground">@color/darkgreydark</item> <!-- Couleur de fond de la barre d'action -->
+        <!-- Couleur de fond de la barre d'action -->
+        <!-- Autres attributs -->
+    </style>
+
+    <!-- Thème de votre application, utilisez l'un des thèmes définis ci-dessus -->
+    <style name="Theme.NavBarre" parent="Theme.NavBarre.Light">
+        <!-- Personnalisez votre thème ici -->
+    </style>
+
+</resources>
