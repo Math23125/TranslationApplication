@@ -3,15 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#3654ED</color>
-    <color name="red">#F40303</color>
-    <color name="whitegrey">#F0F2F9</color>
-    <color name="darkblue">#022B3A</color>
-
-
-
     <color name="purple">#7f00ff</color>
+    <color name="whitegrey">#F2F3F5</color>
     <color name="gris">#9f9f9f</color>
+    <color name="red">#FF0000</color>
     <color name="darkgrey">#555B61</color>
     <color name="darkgreydark">#303030</color>
-
+    <color name="darkwhite">#B3BFCC</color>
 </resources>

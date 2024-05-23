@@ -8,19 +8,13 @@
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pagerMain"
-<<<<<<<<< Temporary merge branch 1
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white" />
-=========
-        android:layout_width="0dp"
-        android:layout_height="0dp"
         android:background="@color/white"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomNavCard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
->>>>>>>>> Temporary merge branch 2
 
     <androidx.cardview.widget.CardView
         android:id="@+id/bottomNavCard"
@@ -38,20 +32,14 @@
             android:id="@+id/bottomNav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-<<<<<<<<< Temporary merge branch 1
             android:layout_above="@id/bottomNav"
-            android:background="?attr/android:colorPrimary"
-            app:itemIconTint="?attr/android:iconTint"
-            app:itemTextColor="?attr/android:textColor"
-            app:menu="@menu/menu_bottom_nav"/>
-=========
-            android:background="@color/whitegrey"
-            android:padding="10dp"
+            android:backgroundTint="@color/white"
             android:rotationY="0"
             app:itemIconTint="@color/color_item_bottom_nav"
             app:itemTextColor="@color/color_item_bottom_nav"
-            app:menu="@menu/menu_bottom_nav" />
->>>>>>>>> Temporary merge branch 2
+            app:menu="@menu/menu_bottom_nav"
+            android:background="@color/whitegrey"
+            android:padding="10dp"/>
 
     </androidx.cardview.widget.CardView>
 
