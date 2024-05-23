@@ -7,4 +7,11 @@
     <color name="whitegrey">#F0F2F9</color>
     <color name="darkblue">#022B3A</color>
 
+
+
+    <color name="purple">#7f00ff</color>
+    <color name="gris">#9f9f9f</color>
+    <color name="darkgrey">#555B61</color>
+    <color name="darkgreydark">#303030</color>
+
 </resources>

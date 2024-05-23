@@ -20,10 +20,10 @@ import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentUser#newInstance} factory method to
+ * Use the {@link FragmentHisto#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentUser extends Fragment {
+public class FragmentHisto extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,7 +37,7 @@ public class FragmentUser extends Fragment {
     private RecyclerView recyclerView;
     private TranslationAdapter adapter;
 
-    public FragmentUser() {
+    public FragmentHisto() {
         // Required empty public constructor
     }
 
@@ -50,8 +50,8 @@ public class FragmentUser extends Fragment {
      * @return A new instance of fragment FragmentUser.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentUser newInstance(String param1, String param2) {
-        FragmentUser fragment = new FragmentUser();
+    public static FragmentHisto newInstance(String param1, String param2) {
+        FragmentHisto fragment = new FragmentHisto();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,7 +71,7 @@ public class FragmentUser extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_user, container, false);
+        View view = inflater.inflate(R.layout.fragment_histo, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         loadTranslations();
