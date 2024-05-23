@@ -7,6 +7,12 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.room.Room;
+
+import com.example.navbarre.fragment.Histopower.AppDatabase;
+import com.example.navbarre.fragment.Histopower.DatabaseClient;
+import com.example.navbarre.fragment.Histopower.Translation;
+
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,16 +26,21 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 public class TranslationCall {
     private Context context;
+    private AppDatabase db;
     private String currentLang = "fr-en";  // Direction de la langue par défaut
     private Handler handler = new Handler();
     private Runnable workRunnable;
 
     public TranslationCall(Context context) {
         this.context = context;
+        db = DatabaseClient.getInstance(context).getAppDatabase();
     }
+
 
     public String getCurrentLang() {
         return currentLang;
@@ -58,7 +69,7 @@ public class TranslationCall {
 
         RequestBody body = RequestBody.create(JSON, jsonObject.toString());
         Request request = new Request.Builder()
-                .url("http://192.168.1.19:5000/translate/" + currentLang)
+                .url("http://192.168.1.10:5000/translate/" + currentLang)
                 .post(body)
                 .build();
 
@@ -89,7 +100,10 @@ public class TranslationCall {
                     JSONObject jsonResponse = new JSONObject(responseData);
                     String translatedText = jsonResponse.getString("translated_text");
                     if (context instanceof Activity) {
-                        ((Activity) context).runOnUiThread(() -> textView.setText(translatedText));
+                        ((Activity) context).runOnUiThread(() -> {
+                            textView.setText(translatedText);
+                            saveTranslation(text, translatedText); // Sauvegarde la traduction ici
+                        });
                     }
                 } catch (JSONException e) {
                     Log.e("TranslationCall", "Erreur de parsing JSON", e);
@@ -102,5 +116,32 @@ public class TranslationCall {
             }
         });
     }
+
+    private void saveTranslation(String original, String translated) {
+        new Thread(() -> {
+            Translation translation = new Translation();
+            translation.originalText = original;
+            translation.translatedText = translated;
+
+            // Formatage de la date et de l'heure actuelles
+            /*SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+            String timestamp = sdf.format(new Date());
+            translation.timestamp = timestamp; */
+
+            // Formatage de la date et de l'heure actuelles
+            String currentDate = new SimpleDateFormat("dd-MM", Locale.getDefault()).format(new Date());
+            String currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
+            translation.setDate(currentDate); // Définir la date actuelle
+            translation.setTime(currentTime); // Définir l'heure actuelle
+
+                        // Obtenir l'instance de la base de données via DatabaseClient
+            AppDatabase db = DatabaseClient.getInstance(context).getAppDatabase();
+
+            db.translationDao().insert(translation);
+            Log.d("TranslationCall", "Translation saved: " + original + " -> " + translated);
+        }).start();
+    }
 }
+
+
 

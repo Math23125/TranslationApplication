@@ -4,5 +4,14 @@
     <string name="french_flag">Drapeau français</string>
     <string name="change_language">Changer de langue</string>
     <string name="british_flag">Drapeau britannique</string>
-    <string name="title_activity_page_chargement">PageChargement</string>
+    <string name="copy_button">Copy button</string>
+    <string name="texte_traduire">Texte à traduire</string>
+    <string name="texte_traduit">Texte traduit</string>
+    <string name="historique_de_traduction">Historique de traduction</string>
+    <string name="detail_de_la_traduction">Détail de la traduction</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="translated_text">Translated Text</string>
+    <string name="delete_translation" />
+
 </resources>
