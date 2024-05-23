@@ -29,6 +29,7 @@ import okhttp3.Response;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
 public class TranslationCall {
     private Context context;
     private AppDatabase db;
@@ -40,7 +41,6 @@ public class TranslationCall {
         this.context = context;
         db = DatabaseClient.getInstance(context).getAppDatabase();
     }
-
 
     public String getCurrentLang() {
         return currentLang;
@@ -57,6 +57,16 @@ public class TranslationCall {
     }
 
     public void translateText(final String text, final TextView textView) {
+        if (text == null || text.trim().isEmpty()) {
+            // Set TextView to empty string if text is null or empty
+            if (context instanceof Activity) {
+                ((Activity) context).runOnUiThread(() ->
+                        textView.setText("")
+                );
+            }
+            return;
+        }
+
         OkHttpClient client = new OkHttpClient();
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         JSONObject jsonObject = new JSONObject();
@@ -69,7 +79,7 @@ public class TranslationCall {
 
         RequestBody body = RequestBody.create(JSON, jsonObject.toString());
         Request request = new Request.Builder()
-                .url("http://192.168.1.116:5000/translate/" + currentLang)
+                .url("http://192.168.1.25:5000/translate/" + currentLang)
                 .post(body)
                 .build();
 
@@ -134,7 +144,7 @@ public class TranslationCall {
             translation.setDate(currentDate); // Définir la date actuelle
             translation.setTime(currentTime); // Définir l'heure actuelle
 
-                        // Obtenir l'instance de la base de données via DatabaseClient
+            // Obtenir l'instance de la base de données via DatabaseClient
             AppDatabase db = DatabaseClient.getInstance(context).getAppDatabase();
 
             db.translationDao().insert(translation);
@@ -142,6 +152,3 @@ public class TranslationCall {
         }).start();
     }
 }
-
-
-

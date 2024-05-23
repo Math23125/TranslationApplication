@@ -8,7 +8,7 @@ import com.example.navbarre.R;
 
 public class PageChargement extends AppCompatActivity {
 
-    private static final int LOADING_DURATION = 5000; // Durée de chargement en millisecondes
+    private static final int LOADING_DURATION = 2500; // Durée de chargement en millisecondes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
