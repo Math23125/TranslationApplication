@@ -2,6 +2,8 @@ package com.example.navbarre.fragment.Histopower;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -50,6 +52,11 @@ public class FullTextActivity extends AppCompatActivity {
         textViewTime.setText(time);
 
         closeButton.setOnClickListener(v -> finish());
+
+        // Change status bar color to white
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(Color.WHITE);
+        }
 
         deleteIcon.setOnClickListener(v -> {
             if (translationIndex != -1) {
