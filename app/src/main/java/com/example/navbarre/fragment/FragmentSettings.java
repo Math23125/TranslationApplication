@@ -55,12 +55,10 @@ public class FragmentSettings extends Fragment {
         notifSwitch = view.findViewById(R.id.notif);
         notificationIcon = view.findViewById(R.id.notificationIcon);
 
-        // Retrieve the current theme state
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("ThemePrefs", Context.MODE_PRIVATE);
         boolean isDarkModeEnabled = sharedPreferences.getBoolean("isDarkModeEnabled", false);
         themeSwitch.setChecked(isDarkModeEnabled);
 
-        // Add a listener to the theme switch
         themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -69,7 +67,6 @@ public class FragmentSettings extends Fragment {
             }
         });
 
-        // Add a listener to the notification switch
         notifSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -81,7 +78,6 @@ public class FragmentSettings extends Fragment {
             }
         });
 
-        // Gestionnaire de clics pour le bouton "Informations"
         ImageButton infoButton = view.findViewById(R.id.InfoButton);
         infoButton.setOnClickListener(v -> showInfoDialog());
 
@@ -98,7 +94,6 @@ public class FragmentSettings extends Fragment {
         profiles.put("Mahouna", "Mahouna,Vayssieres,Mikey,06/06/2003");
         profiles.put("Mathieu", "Mathieu,Gilles,ShadowNinja,12/12/2003");
         profiles.put("Mathieu", "Mathieu,Habelski,PédroCiTdor,23/12/2003");
-        // Ajoutez d'autres profils selon vos besoins
     }
 
     // Méthode pour récupérer aléatoirement un profil du dictionnaire
@@ -182,10 +177,9 @@ public class FragmentSettings extends Fragment {
         } else {
             requireActivity().setTheme(R.style.Theme_NavBarre_Light);
         }
-        requireActivity().recreate(); // Recreate the activity to apply the new theme
+        requireActivity().recreate(); // applique le theme en recréant l'activité
     }
 
-    // Define keys for the arguments
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 }

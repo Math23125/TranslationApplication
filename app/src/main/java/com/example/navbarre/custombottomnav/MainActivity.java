@@ -33,16 +33,12 @@ public class MainActivity extends AppCompatActivity {
         boolean isFirstRun = preferences.getBoolean("isFirstRun", true);
 
         if (isFirstRun) {
-            // Marquer que ce n'est plus la première exécution
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("isFirstRun", false);
             editor.apply();
 
-            // Démarrer l'activité de chargement
             startActivity(new Intent(this, PageChargement.class));
-            // Pas besoin de terminer l'activité ici
         } else {
-            // Mettez le reste du code ici
             SharedPreferences sharedPreferences = getSharedPreferences("ThemePrefs", Context.MODE_PRIVATE);
             boolean isDarkModeEnabled = sharedPreferences.getBoolean("isDarkModeEnabled", false);
 
@@ -62,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             fragmentArrayList.add(new FragmentSettings());
 
             AdapterViewPager adapterViewPager = new AdapterViewPager(this, fragmentArrayList);
-            // Set the adapter
             pagerMain.setAdapter(adapterViewPager);
             pagerMain.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
                 @Override
