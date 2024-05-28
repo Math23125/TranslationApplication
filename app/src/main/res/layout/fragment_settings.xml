@@ -15,9 +15,9 @@
         android:layout_height="wrap_content"
         android:text="Settings"
         android:textColor="?attr/android:textColor"
-        android:textSize="24sp"
-        android:padding="30dp"
-        android:paddingBottom="8dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="16dp"
         android:gravity="center"/>
 
 
@@ -31,14 +31,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            app:cardCornerRadius="30dp"
+            app:cardCornerRadius="10dp"
             tools:ignore="DuplicateIds">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/rounded_corner"
-                android:elevation="2dp"
+                android:elevation="8dp"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -66,7 +66,7 @@
                     <View
                         android:layout_width="160dp"
                         android:layout_height="0dp"
-                        android:layout_weight="1" /> <!-- Ajout d'une vue vide avec poids pour pousser le bouton vers la droite -->
+                        android:layout_weight="1" />
 
                     <ImageButton
                         android:id="@+id/editProfileButton"
@@ -106,13 +106,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            app:cardCornerRadius="30dp">
+            app:cardCornerRadius="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@drawable/rounded_corner"
-                android:elevation="2dp"
+                android:elevation="8dp"
                 android:padding="16dp">
 
                 <LinearLayout
@@ -163,13 +163,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            app:cardCornerRadius="30dp">
+            app:cardCornerRadius="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@drawable/rounded_corner"
-                android:elevation="2dp"
+                android:elevation="8dp"
                 android:padding="16dp">
 
                 <LinearLayout
@@ -220,14 +220,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            app:cardCornerRadius="30dp"
+            app:cardCornerRadius="10dp"
             tools:ignore="DuplicateIds">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/rounded_corner"
-                android:elevation="2dp"
+                android:elevation="8dp"
                 android:orientation="vertical"
                 android:padding="16dp">
 
