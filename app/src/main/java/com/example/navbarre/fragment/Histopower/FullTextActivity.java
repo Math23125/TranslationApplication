@@ -27,7 +27,6 @@ public class FullTextActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_text);
 
-        // Initialisation des TextViews avec les bons identifiants
         textViewOriginalText = findViewById(R.id.full_original_text);
         textViewTranslatedText = findViewById(R.id.full_translated_text);
         textViewDate = findViewById(R.id.textViewDate);
@@ -37,7 +36,6 @@ public class FullTextActivity extends AppCompatActivity {
 
         ImageView closeButton = findViewById(R.id.close_button);
 
-        // Getting the translation text, date and time from intent
         String originalText = getIntent().getStringExtra("original_text");
         String translationText = getIntent().getStringExtra("translated_text");
         String date = getIntent().getStringExtra("translation_date");
@@ -45,7 +43,6 @@ public class FullTextActivity extends AppCompatActivity {
 
         translationIndex = getIntent().getIntExtra("translation_index", -1);
 
-        // Setting the translation text, date and time to TextViews
         textViewOriginalText.setText(originalText);
         textViewTranslatedText.setText(translationText);
         textViewDate.setText(date);
@@ -53,19 +50,11 @@ public class FullTextActivity extends AppCompatActivity {
 
         closeButton.setOnClickListener(v -> finish());
 
-        // Change status bar color to white
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.WHITE);
         }
 
-        deleteIcon.setOnClickListener(v -> {
-            if (translationIndex != -1) {
-                Intent returnIntent = new Intent();
-                returnIntent.putExtra("translation_index", translationIndex);
-                setResult(RESULT_OK, returnIntent);
-                finish();
-            }
-        });
+
     }
 
 

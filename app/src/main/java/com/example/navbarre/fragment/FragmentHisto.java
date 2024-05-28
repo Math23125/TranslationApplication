@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -26,8 +27,7 @@ import java.util.List;
 public class FragmentHisto extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
+        private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
@@ -38,8 +38,7 @@ public class FragmentHisto extends Fragment {
     private TranslationAdapter adapter;
 
     public FragmentHisto() {
-        // Required empty public constructor
-    }
+            }
 
     /**
      * Use this factory method to create a new instance of
@@ -73,21 +72,39 @@ public class FragmentHisto extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_histo, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
+        Button clearHistoryButton = view.findViewById(R.id.clear_history_button);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         loadTranslations();
+
+        clearHistoryButton.setOnClickListener(v -> clearAllTranslations());
         return view;
     }
 
-    private void loadTranslations() {
+    private void clearAllTranslations() {
         new Thread(() -> {
             AppDatabase db = DatabaseClient.getInstance(getActivity().getApplicationContext()).getAppDatabase();
-            List<Translation> translations = db.translationDao().getAllTranslations();
+            db.translationDao().deleteAllTranslations();
 
             getActivity().runOnUiThread(() -> {
-                adapter = new TranslationAdapter(getActivity(), translations);
-                recyclerView.setAdapter(adapter);
+                adapter.clearTranslations();
+                adapter.notifyDataSetChanged();
             });
         }).start();
     }
+
+    private void loadTranslations() {
+        AppDatabase db = DatabaseClient.getInstance(getActivity().getApplicationContext()).getAppDatabase();
+        db.translationDao().getAllTranslations().observe(getViewLifecycleOwner(), translations -> {
+            if (adapter == null) {
+                adapter = new TranslationAdapter(getActivity(), translations);
+                recyclerView.setAdapter(adapter);
+            } else {
+                adapter.setTranslations(translations);
+            }
+        });
+    }
+
+
+
 
 }

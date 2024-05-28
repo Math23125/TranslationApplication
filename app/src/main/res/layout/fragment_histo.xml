@@ -7,6 +7,7 @@
     android:fitsSystemWindows="true"
     tools:context=".fragment.FragmentHisto">
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,6 +17,20 @@
         android:textStyle="bold"
         android:padding="16dp"
         android:textColor="@android:color/black" />
+
+    <!-- Bouton pour effacer l'historique des traductions -->
+    <Button
+        android:id="@+id/clear_history_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clear_all"
+
+
+        android:textColor="@android:color/black"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        />
 
     <!-- RecyclerView pour afficher l'historique des traductions -->
     <androidx.recyclerview.widget.RecyclerView

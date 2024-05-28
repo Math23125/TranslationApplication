@@ -8,4 +8,5 @@
     <item name="close_button" type="id" />
     <item name="textViewDate" type="id" />
     <item name="textViewTime" type="id" />
+    <item name="titleTextView" type="id" />
 </resources>

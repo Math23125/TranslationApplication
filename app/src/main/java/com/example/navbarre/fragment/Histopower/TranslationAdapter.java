@@ -1,11 +1,17 @@
 package com.example.navbarre.fragment.Histopower;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,13 +29,23 @@ public class TranslationAdapter extends RecyclerView.Adapter<TranslationAdapter.
     private List<Translation> translations;
     private Context context;
 
-    public List<Translation> getTranslations() {
-        return translations;
-    }
+
 
     public TranslationAdapter(Context context, List<Translation> translations) {
         this.translations = translations;
         this.context = context;
+
+    }
+
+    public void clearTranslations() {
+        translations.clear();
+        notifyDataSetChanged();
+    }
+
+
+    public void setTranslations(List<Translation> newTranslations) {
+        this.translations = newTranslations;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -45,7 +61,6 @@ public class TranslationAdapter extends RecyclerView.Adapter<TranslationAdapter.
         holder.originalText.setText(translation.getText());
         holder.translatedText.setText(translation.getTranslatedText());
 
-        // Directly set the date and time as strings
         holder.translationDate.setText(translation.getDate());
         holder.translationTime.setText(translation.getTime());
 
@@ -58,6 +73,33 @@ public class TranslationAdapter extends RecyclerView.Adapter<TranslationAdapter.
             context.startActivity(intent);
         });
 
+
+        // Gestion de la suppression par appui long
+        holder.itemView.setOnLongClickListener(v -> {
+
+
+            AlertDialog dialog = new AlertDialog.Builder(context)
+                    .setTitle("Confirmer la suppression")
+                    .setMessage("Voulez-vous vraiment supprimer cette traduction ?")
+                    .setPositiveButton("Supprimer", (dialogInterface, i) -> {
+                        // Logique pour supprimer l'élément
+                    })
+                    .setNegativeButton("Annuler", null)
+                    .show();
+
+// Modifier la couleur du bouton positif
+            Button positiveButton = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+            positiveButton.setTextColor(Color.BLACK);  // Utilisez Color.BLACK ou une autre couleur définie
+
+// Modifier la couleur du bouton négatif
+            Button negativeButton = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+            negativeButton.setTextColor(Color.BLACK);  // Assurez-vous que c'est bien appliqué
+
+
+            return true;
+        });
+
+
         holder.deleteIcon.setOnClickListener(v -> removeItem(position));
     }
 
@@ -66,7 +108,7 @@ public class TranslationAdapter extends RecyclerView.Adapter<TranslationAdapter.
         return translations.size();
     }
 
-    private void removeItem(int position) {
+    public void removeItem(int position) {
         Translation translation = translations.get(position);
         new Thread(() -> {
             DatabaseClient.getInstance(context).getAppDatabase()
@@ -81,16 +123,16 @@ public class TranslationAdapter extends RecyclerView.Adapter<TranslationAdapter.
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView originalText;
         TextView translatedText;
-        TextView translationDate; // Ajouter un TextView pour la date
-        TextView translationTime; // Ajouter un TextView pour l'heure
+        TextView translationDate;
+        TextView translationTime;
         ImageView deleteIcon;
 
         public ViewHolder(View view) {
             super(view);
             originalText = view.findViewById(R.id.original_text);
             translatedText = view.findViewById(R.id.translated_text);
-            translationDate = view.findViewById(R.id.translation_date); // Link the view for the date
-            translationTime = view.findViewById(R.id.translation_time); // Link the view for the time
+            translationDate = view.findViewById(R.id.translation_date);
+            translationTime = view.findViewById(R.id.translation_time);
             deleteIcon = view.findViewById(R.id.delete_icon);
         }
     }

@@ -17,10 +17,10 @@ public class Translation {
     public String translatedText;
 
     @ColumnInfo(name = "date")
-    private String date; // Ajouter un champ pour la date
+    private String date;
 
     @ColumnInfo(name = "time")
-    private String time; // Ajouter un champ pour l'heure
+    private String time;
 
     // Getters
     public int getId() {

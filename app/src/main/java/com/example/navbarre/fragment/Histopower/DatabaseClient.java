@@ -12,15 +12,11 @@ public class DatabaseClient {
     private Context mCtx;
     private static DatabaseClient mInstance;
 
-    //private AppDatabase appDatabase;
-
     private DatabaseClient(Context mCtx) {
         this.mCtx = mCtx;
 
-        // Creating the app database with Room database builder
-        // MyToDos is the name of the database
         appDatabase = Room.databaseBuilder(mCtx, AppDatabase.class, "MyToDos")
-                .addMigrations(AppDatabase.MIGRATION_1_2) // Ajouter la migration
+                .addMigrations(AppDatabase.MIGRATION_1_2)
                 .build();
     }
 
