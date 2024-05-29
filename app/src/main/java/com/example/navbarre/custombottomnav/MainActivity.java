@@ -16,7 +16,6 @@ import com.example.navbarre.adapter.AdapterViewPager;
 import com.example.navbarre.fragment.FragmentHome;
 import com.example.navbarre.fragment.FragmentSettings;
 import com.example.navbarre.fragment.FragmentHisto;
-import com.example.navbarre.fragment.Histopower.FullTextActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import java.util.ArrayList;

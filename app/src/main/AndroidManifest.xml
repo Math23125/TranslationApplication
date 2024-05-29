@@ -11,33 +11,27 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/logocharg"
         android:label="@string/app_name"
-
         android:supportsRtl="true"
         android:theme="@style/Theme.NavBarre"
         tools:targetApi="31">
 
-
-        <!-- Activité de chargement -->
         <activity
             android:name=".custombottomnav.PageChargement"
             android:exported="true"
             android:label="@string/title_activity_page_chargement"
-            android:theme="@style/Theme.NavBarre.Light" />
-
-        <activity
-            android:name=".custombottomnav.MainActivity"
-            android:exported="true">
+            android:theme="@style/Theme.NavBarre.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- Déclaration de FullTextActivity -->
-        <activity android:name=".fragment.Histopower.FullTextActivity"
-            android:theme="@style/Theme.NavBarre.Light"    />
+        <activity
+            android:name=".custombottomnav.MainActivity"
+            android:exported="true" />
 
-
+        <activity
+            android:name=".fragment.Histopower.FullTextActivity"
+            android:theme="@style/Theme.NavBarre.Light" />
     </application>
-
 </manifest>

@@ -13,7 +13,7 @@
     <string name="time">Time</string>
     <string name="translated_text">Translated Text</string>
     <string name="delete_translation" />
-    <string name="title_activity_page_chargement">PageChargement</string>
+    <string name="title_activity_page_chargement">IdiomAI</string>
     <string name="clear_history" />
     <string name="clear_all">Clear all</string>
 
