@@ -57,6 +57,16 @@ public class TranslationCall {
     }
 
     public void translateText(final String text, final TextView textView) {
+        if (text == null || text.trim().isEmpty()) {
+            // Set TextView to empty string if text is null or empty
+            if (context instanceof Activity) {
+                ((Activity) context).runOnUiThread(() ->
+                        textView.setText("")
+                );
+            }
+            return;
+        }
+
         OkHttpClient client = new OkHttpClient();
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         JSONObject jsonObject = new JSONObject();
@@ -131,8 +141,8 @@ public class TranslationCall {
             // Formatage de la date et de l'heure actuelles
             String currentDate = new SimpleDateFormat("dd-MM", Locale.getDefault()).format(new Date());
             String currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
-            translation.setDate(currentDate); // Définir la date actuelle
-            translation.setTime(currentTime); // Définir l'heure actuelle
+            translation.setDate(currentDate);
+            translation.setTime(currentTime);
 
                         // Obtenir l'instance de la base de données via DatabaseClient
             AppDatabase db = DatabaseClient.getInstance(context).getAppDatabase();
